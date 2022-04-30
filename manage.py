@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 
 #Flask为一个类，对其进行实例化
 app=Flask(__name__)
@@ -12,6 +12,32 @@ def index():
     #通过render_template，flask会自动打开文件
     #默认去当前项目目录的templates文件夹中读取
     return render_template("index.html")
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+@app.route("/tests/test",methods=['GET'])
+def test():
+    return render_template("test.html")
+
+@app.route("/exec/reg")
+def exec_reg():
+    #接收用户通过GET形式发送过来的数据
+    print(request.args)
+    #给用户再返回数据
+    return "success"
+
+@app.route("/exec/post_reg",methods=["POST"])
+def exec_post_reg():
+    #接收用户通过GET形式发送过来的数据
+    print(request.form)
+    city=request.form.get("city")
+    more = request.form.get("more")
+    habit=request.form.getlist("habit")
+    print(more,city,habit)
+    #给用户再返回数据
+    return "post_success"
 
 if __name__ == '__main__':
     app.run(host="localhost",port="3389")
