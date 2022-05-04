@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test3</title>
+</head>
+<body>
+    <div id="dis">
+        <textarea name="text" id="txt"></textarea>
+        <input type="button" value="提交" onclick="display()">
+    </div>
+    <script>
+        function display() {
+            //1.通过id找到用户输入框
+            var texttag=document.getElementById("txt");
+            //2.提取输入框内容
+            var text_info=texttag.value;
+            //3.创建新标签
+            var newtag=document.createElement("div");
+            //4.将新标签内容修改为输入框中提取到的信息
+            newtag.innerText=text_info;
+            //5.将新标签与所属标签进行关联
+            var tag=document.getElementById("dis");
+            tag.appendChild(newtag);
+            //6.清空输入框内容
+            texttag.value="";
+        }
+    </script>
+</body>
+</html>

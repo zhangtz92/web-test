@@ -71,6 +71,16 @@ col-md-offset-x为向右侧偏移x个栅格
 ###补充
 设置边框阴影：box-shadow：水平（正值在右边，负值在左边）、垂直（正值在下边，负值在上边）、模糊距离、阴影颜色
 
+###关于图标
+bootstrap中提供的图标有限，从fontawesome中找图标<br>
+https://fontawesome.dashgame.com/
+<br>将文件夹解压到plugins文件夹
+```css
+<link rel="stylesheet" href="./static/plugins/font-awesome-4.7.0/css/font-awesome.css">
+```
+可添加各种图标
+
+
 
 
 

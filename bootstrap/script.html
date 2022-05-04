@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>script-test</title>
+    <style>
+        .menus{
+            color: blueviolet;
+        }
+        .menus .items{
+            color:greenyellow;
+            background-color:grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="menus" id="txt">
+        阿斯顿法国红酒看来围绕太阳与还是杜甫二十度撒旦给
+    </div>
+    <ul id="city">
+
+    </ul>
+    <script type="text/javascript">
+        var citylist=["beijing","shanghai","shenzhen"];
+        for(var count in citylist)
+        {
+            var text=citylist[count];//读取数组中数据
+            var tag=document.createElement("li");//创建新标签
+            tag.innerText=text;//新标签中的内容与数组中内容对于
+            var parenttag=document.getElementById("city");//找到对应id的标签
+            parenttag.appendChild(tag);//添加子标签
+        }
+    </script>
+</body>
+</html>

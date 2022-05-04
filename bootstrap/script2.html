@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <h2>试验表格</h2>
+    <table border="1px">
+        <thead id="table-head">
+
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        /*表格对象具体信息*/
+        var info=[{name:"大帅哥", age:20,gender:"男"},
+            {name:"王二", age:30,gender:"男"},
+            {name:"高富帅", age:25,gender:"男"},
+            {name:"莉莉", age:25,gender:"女"},
+            {name:"索菲", age:25,gender:"女"}];
+        /*处理表头*/
+        var tr_head_tag=document.createElement("tr");//创建一个表格表头的行的标签
+        for(var head_info in info[0])//表头行有多少列
+        {
+            var head_elements=document.createElement("th");//创建一个表格表头的内容的标签
+            head_elements.innerText=head_info;//元素的内容为对象info中内容
+            tr_head_tag.appendChild(head_elements);//将元素添加到行标签
+        }
+        var tr_head=document.getElementById("table-head");//找到对应id的表头标签
+        tr_head.appendChild(tr_head_tag);//将行标签添加到对应id的表头
+        /*处理表格内容*/
+        for(var count in info)//表格有多少行
+        {
+            tags=info[count];//提取每个对象，每个对象为一行
+            var tr_body_tag=document.createElement("tr");////创建一个表格内容的行的标签
+            for(var item in tags)//每一行有多少列
+            {
+                body_info=tags[item];//提取每个元素信息
+                var body_elements=document.createElement("td");//创建一个表格元素的标签
+                body_elements.innerText=body_info;//元素的内容为对象info中内容
+                tr_body_tag.appendChild(body_elements);//将元素添加到行标签
+            }
+            var tr_body=document.getElementById("table-body");//找到对应id的表格内容标签
+            tr_body.appendChild(tr_body_tag);//将行添加到表格
+        }
+
+    </script>
+</body>
+</html>
