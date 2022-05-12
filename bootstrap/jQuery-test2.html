@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City-list</title>
+    <style>
+        .city-list{
+            width: 200px;
+            height: 800px;
+            background-color: #9acfea;
+            border: solid 1px pink;
+            margin-bottom: 0;
+        }
+        .city-list .city-name{
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 18px;
+        }
+        .city-list .city-name .area{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="city-list">
+        <div class="city-name" onclick="display(this)">
+            北京
+            <ul class="area">
+                <li>朝阳区</li>
+                <li>海淀区</li>
+                <li>大兴区</li>
+                <li>昌平区</li>
+            </ul>
+        </div>
+        <div class="city-name" onclick="display(this)">
+            上海
+            <ul class="area">
+                <li>静安区</li>
+                <li>青浦区</li>
+                <li>徐汇区</li>
+                <li>宝山区</li>
+            </ul>
+        </div>
+        <div class="city-name" onclick="display(this)">
+            深圳
+            <ul class="area">
+                <li>龙华区</li>
+                <li>南山区</li>
+                <li>宝安区</li>
+                <li>福田区</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function display(self) {
+            var hasclass=$(self).find("ul").hasClass("area");//寻找点击标签的后代标签中的有.area样式的"ul"标签
+            if (hasclass)//如果击标签的后代标签中的有.area样式的"ul"标签
+            {
+                $(self).parent().find("ul").addClass("area");//给所有的"ul"标签加上display=none的样式
+                $(self).find("ul").removeClass("area");//给点击标签的后代标签中的"ul"标签去除display=none样式
+            }
+            else
+            {
+                $(self).find("ul").addClass("area");//给点击标签的后代标签中的"ul"标签加上display=none样式
+            }
+        }
+    </script>
+</body>
+</html>

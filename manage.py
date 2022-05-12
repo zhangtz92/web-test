@@ -11,7 +11,8 @@ def index():
     #return "Web-Day1"
     #通过render_template，flask会自动打开文件
     #默认去当前项目目录的templates文件夹中读取
-    return render_template("index.html")
+    info=["王二","sophie","tommy","milliy"]
+    return render_template("index.html",title="网页制作",datalist=info)
 
 @app.route("/register")
 def register():

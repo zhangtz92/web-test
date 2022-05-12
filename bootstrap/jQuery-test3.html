@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test3</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="username" placeholder="用户名">
+        <input type="password" id="pwd" placeholder="密码">
+    </div>
+    <div>
+        <input type="button" value="提交" onclick="display()">
+    </div>
+    <div>
+        <ul id="view"></ul>
+    </div>
+    <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function display() {
+            var user_name=$("#username").val();
+            var user_pwd=$("#pwd").val();
+            var display_info=user_name+' - '+user_pwd;
+            var newli = $("<li>").text(display_info);//内容为display_info
+            $("#view").append(newli);
+        }
+    </script>
+</body>
+</html>
