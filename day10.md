@@ -109,7 +109,7 @@ drop database 数据库名称;
 
 - 进入数据库
 ```mysql
-use database 数据库名称;
+use 数据库名称;
 ```
 
 - 查看数据库下全部数据表
@@ -204,7 +204,10 @@ insert into tb1(salary,age) values(30000,38),(40000,48),(50000,58); --批量插�
 - 查看表中数据
 ```sql
 select * from tb1;
+select id,name from tb1; --按列查询
+select id,name from tb1 where id>3; --按列条件查询
 ```
+
 - 字符串的存储
     - char
     ```sql
@@ -233,4 +236,32 @@ select * from tb1;
         - 时间存储
     - data
         - 日期
-    
+
+- 数据表删除数据
+```sql
+delete from 表名;
+delete from 表名 where 条件;
+```
+例：
+```sql
+delete from tb1;
+delete from tb1 where id=3;
+delete from tb1 where id=3 and name="jimmy";
+delete from tb1 where id>=3;
+delete from tb1 where id!=3;
+delete from tb1 where id in (1,5);
+```
+
+- 数据表修改数据
+```sql
+update 表名 set 列=值;
+update 表名 set 列1=值1,列2=值2;
+update 表名 set 列=值 where 条件;
+```
+例：
+```sql
+update tb2 set password="hahaha";
+update tb2 set email="hahaha" where id>5;
+update tb2 set age=age+10;
+```
+
