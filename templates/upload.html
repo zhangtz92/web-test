@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+    <script>
+        function showimage(file){
+            document.getElementById('display-image').remove();//将原标签删除，以更新缩略图
+            var divtag=document.getElementById("display");
+            var tag_d=document.createElement("div");
+            tag_d.setAttribute("id","display-image");
+            divtag.appendChild(tag_d);//重新创建用于显示缩略图的标签
+            for(i=0;i<file.files.length;i++){
+                displayimage(file.files[i]);
+            }
+            // var reader= new Array(file.files.length);
+            // var tag= new Array(file.files.length);
+            // var imagetag=document.getElementById("display-image");
+            // for(i=0;i<file.files.length;i++){
+            //     tag[i]=document.createElement("img");//创建标签
+            //     var view=document.createElement("img");
+            //     view.setAttribute("style","height:100px");
+            //     var read_temp=new FileReader();
+            //     //reader[i]= new FileReader();
+            //     read_temp.onload = function(evt) {
+            //         view.src=evt.target.result;
+            //     }
+            //     reader[i]=read_temp
+            //     reader[i].readAsDataURL(file.files[i]);
+            //     tag[i]=view;
+            //     imagetag.appendChild(tag[i]);
+            // }
+
+            // var imagetag=document.getElementById("display-image");
+            //
+            // var tag=document.createElement("img");//创建标签
+            // var reader= new FileReader();
+            // reader.onload = function (evt) {
+            //     tag.src = evt.target.result;
+            // };
+            // reader.readAsDataURL(file.files[0]);
+            // tag.setAttribute("style","height:100px;float:left");
+            // imagetag.appendChild(tag);
+            //
+            // var tag1=document.createElement("img");//创建标签
+            // var reader1= new FileReader();
+            // reader1.onload = function (evt) {
+            //     tag1.src = evt.target.result;
+            // };
+            // reader1.readAsDataURL(file.files[1]);
+            // tag1.setAttribute("style","height:100px;float:left");
+            // imagetag.appendChild(tag1);
+            //
+            // var tag2=document.createElement("img");//创建标签
+            // var reader2= new FileReader();
+            // reader2.onload = function (evt) {
+            //     tag2.src = evt.target.result;
+            // };
+            // reader2.readAsDataURL(file.files[2]);
+            // tag2.setAttribute("style","height:100px;float:left");
+            // imagetag.appendChild(tag2);
+        }
+        function displayimage(file){
+            var imagetag=document.getElementById("display-image");
+
+            var tag=document.createElement("img");//创建标签
+            var reader= new FileReader();
+            reader.onload = function (evt) {
+                tag.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+            tag.setAttribute("style","height:100px;float:left");
+            imagetag.appendChild(tag);
+        }
+    </script>
+</head>
+<body>
+<h2>上传文件</h2>
+
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="upfile" onchange="showimage(this)" multiple>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+
+</form>
+<div id="display">
+    <div id="display-image">
+
+    </div>
+</div>
+
+</body>
+</html>
